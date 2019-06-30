@@ -27,8 +27,8 @@ node wms-save-image.js example/thumbnail.json
 
 ```bash
 node wms-save-image.js \
-   -U "https://openwms.statkart.no/skwms1/wms.topo4.graatone?request=GetMap&SERVICE=WMS&VERSION=1.1.1&BBOX=${left},${bottom},${right},${top}&SRS=EPSG:32633&WIDTH=${width}&HEIGHT=${height}&LAYERS=topo4graatone_WMS&STYLES=&FORMAT=image/png"
-example/thumbnail.json
+   -U "https://openwms.statkart.no/skwms1/wms.topo4.graatone?request=GetMap&SERVICE=WMS&VERSION=1.1.1&BBOX=${bbox}&SRS=EPSG:32633&WIDTH=${width}&HEIGHT=${height}&LAYERS=topo4graatone_WMS&STYLES=&FORMAT=image/png" \
+   -M example/thumbnail.json
 ```
 
 #### Variables

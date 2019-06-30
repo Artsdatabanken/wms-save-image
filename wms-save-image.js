@@ -7,12 +7,12 @@ const args = commandLineArgs.parse();
 
 const meta = JSON.parse(fs.readFileSync(args.meta));
 
+const { left, bottom, right, top } = meta.bbox;
+const bbox = `${left},${bottom},${right},${top}`;
+
 let url = args.url.replace("${width}", meta.image.width);
 url = url.replace("${height}", meta.image.height);
-url = url.replace("${left}", meta.bbox.left);
-url = url.replace("${top}", meta.bbox.top);
-url = url.replace("${bottom}", meta.bbox.bottom);
-url = url.replace("${right}", meta.bbox.right);
+url = url.replace("${bbox}", bbox);
 
 console.log(url);
 fetch(url).then(response => {

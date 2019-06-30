@@ -10,15 +10,13 @@ function parse() {
     default: {
       meta: "thumbnail.json",
       url:
-        "https://openwms.statkart.no/skwms1/wms.topo4.graatone?request=GetMap&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&BBOX=${left},${bottom},${right},${top}&SRS=EPSG:32633&WIDTH=${width}&HEIGHT=${height}&LAYERS=topo4graatone_WMS&STYLES=&FORMAT=image/png&DPI=96&MAP_RESOLUTION=96&FORMAT_OPTIONS=dpi:96&TRANSPARENT=TRUE"
+        "https://openwms.statkart.no/skwms1/wms.topo4.graatone?request=GetMap&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&BBOX=${bbox}&SRS=EPSG:32633&WIDTH=${width}&HEIGHT=${height}&LAYERS=topo4graatone_WMS&STYLES=&FORMAT=image/png"
     }
   });
-  if (argv._.length !== 0) {
-    usage();
-    process.exit(1);
-  }
-  console.log(argv);
-  return argv;
+  if (argv._.length === 0) return argv;
+
+  usage();
+  process.exit(1);
 }
 
 function usage() {
