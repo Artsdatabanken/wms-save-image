@@ -1,0 +1,12 @@
+{
+  "bbox": {
+    "left": 524161.0500020641,
+    "bottom": 7590643.169290178,
+    "right": 805691.242609148,
+    "top": 7853460.758413694
+  },
+  "image": { "width": 408, "height": 380 },
+  "color": "hsl(0, 0%, 70%)",
+  "strokeWidth": 0.5,
+  "crs": "urn:ogc:def:crs:EPSG::32633"
+}

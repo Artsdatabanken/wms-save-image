@@ -1,0 +1,29 @@
+{
+  "name": "download-wms-map-image",
+  "version": "1.0.0",
+  "description": "Download map image from a WMS servere",
+  "main": "download-wms-map-image.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "map-image-preview": "./download-wms-map-image.js"
+  },
+  "keywords": [
+    "wms",
+    "download"
+  ],
+  "author": "Bjorn Reppen <bjreppen@gmail.com> (https://github.com/bjornreppen)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Artsdatabanken/map-image-preview"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "node-fetch": "^2.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
