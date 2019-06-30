@@ -13,7 +13,7 @@ function parse() {
         "https://openwms.statkart.no/skwms1/wms.topo4.graatone?request=GetMap&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&BBOX=${left},${bottom},${right},${top}&SRS=EPSG:32633&WIDTH=${width}&HEIGHT=${height}&LAYERS=topo4graatone_WMS&STYLES=&FORMAT=image/png&DPI=96&MAP_RESOLUTION=96&FORMAT_OPTIONS=dpi:96&TRANSPARENT=TRUE"
     }
   });
-  if (argv._.length !== 1) {
+  if (argv._.length !== 0) {
     usage();
     process.exit(1);
   }

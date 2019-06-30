@@ -5,7 +5,7 @@ const fetch = require("node-fetch");
 
 const args = commandLineArgs.parse();
 
-const meta = JSON.parse(fs.readFileSync(args._[0]));
+const meta = JSON.parse(fs.readFileSync(args.meta));
 
 let url = args.url.replace("${width}", meta.image.width);
 url = url.replace("${height}", meta.image.height);
