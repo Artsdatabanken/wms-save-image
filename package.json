@@ -1,6 +1,6 @@
 {
   "name": "wms-save-image",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Download map image from a WMS servere",
   "main": "wms-save-image.js",
   "scripts": {
