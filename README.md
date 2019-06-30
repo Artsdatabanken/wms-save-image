@@ -5,7 +5,7 @@ Download a single image from a WMS map server
 # Usage
 
 ```
-Usage: node download-wms-map-image <options> [meta.json]
+Usage: node wms-save-image <options> [meta.json]
 
 meta.json   JSON file containing bounds information
 
@@ -16,7 +16,7 @@ Options:
 ## Example
 
 ```bash
-node download-wms-map-image.js example/thumbnail.json
+node wms-save-image.js example/thumbnail.json
 ```
 
 ![Sample](doc/thumbnail_back.png)
@@ -26,7 +26,7 @@ node download-wms-map-image.js example/thumbnail.json
 ### URL template
 
 ```bash
-node download-wms-map-image.js \
+node wms-save-image.js \
    -U "https://openwms.statkart.no/skwms1/wms.topo4.graatone?request=GetMap&SERVICE=WMS&VERSION=1.1.1&BBOX=${left},${bottom},${right},${top}&SRS=EPSG:32633&WIDTH=${width}&HEIGHT=${height}&LAYERS=topo4graatone_WMS&STYLES=&FORMAT=image/png"
 example/thumbnail.json
 ```

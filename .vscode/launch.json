@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/download-wms-map-image.js",
+      "program": "${workspaceFolder}/wms-save-image.js",
       "args": ["example/thumbnail.json"]
     }
   ]

@@ -22,7 +22,7 @@ function parse() {
 }
 
 function usage() {
-  console.log("Usage: node download-wms-map-image <options> [mapfile]");
+  console.log("Usage: node wms-save-image <options> [mapfile]");
   console.log("");
   console.log("mapfile    GeoJSON map source file for the preview");
   console.log("");
