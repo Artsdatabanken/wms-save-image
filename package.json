@@ -1,13 +1,13 @@
 {
   "name": "wms-save-image",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Download map image from a WMS servere",
   "main": "wms-save-image.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "map-image-preview": "./wms-save-image.js"
+    "wms-save-image": "./wms-save-image.js"
   },
   "keywords": [
     "wms",
