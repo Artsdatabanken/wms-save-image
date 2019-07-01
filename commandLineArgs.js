@@ -14,7 +14,7 @@ function parse() {
       meta: "thumbnail.json",
       out: "thumbnail_back.png",
       url:
-        "https://openwms.statkart.no/skwms1/wms.topo4.graatone?request=GetMap&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&BBOX=${bbox}&SRS=EPSG:32633&WIDTH=${width}&HEIGHT=${height}&LAYERS=topo4graatone_WMS&STYLES=&FORMAT=image/png"
+        "https://openwms.statkart.no/skwms1/wms.topo4.graatone?request=GetMap&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&BBOX=1,1,1,1&SRS=EPSG:32633&WIDTH=333&HEIGHT=$222&LAYERS=topo4graatone_WMS&STYLES=&FORMAT=image/png"
     }
   });
   if (fs.existsSync(argv.meta)) return argv;
