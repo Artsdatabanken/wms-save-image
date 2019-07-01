@@ -1,32 +1,37 @@
 const minimist = require("minimist");
+const fs = require("fs");
+const pkg = require("./package");
 
 function parse() {
   var argv = minimist(process.argv.slice(2), {
     stopEarly: true,
     alias: {
       M: "meta",
+      O: "out",
       U: "url"
     },
     default: {
       meta: "thumbnail.json",
+      out: "thumbnail_back.png",
       url:
         "https://openwms.statkart.no/skwms1/wms.topo4.graatone?request=GetMap&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&BBOX=${bbox}&SRS=EPSG:32633&WIDTH=${width}&HEIGHT=${height}&LAYERS=topo4graatone_WMS&STYLES=&FORMAT=image/png"
     }
   });
-  if (argv._.length === 0) return argv;
+  if (fs.existsSync(argv.meta)) return argv;
 
   usage();
   process.exit(1);
 }
 
 function usage() {
-  console.log("Usage: node wms-save-image <options> [mapfile]");
+  console.log("WMS image downloader v" + pkg.version);
   console.log("");
-  console.log("mapfile    GeoJSON map source file for the preview");
+  console.log("Usage: node wms-save-image <options> [jsonfile]");
   console.log("");
   console.log("Options:");
-  console.log("   -M  --meta Input metadata file");
+  console.log("   -M  --meta bounds and image dimensions JSON");
   console.log("   -U  --url  WMS URL template");
+  console.log("   -O  --out  Target image file");
   console.log("");
 }
 module.exports = { parse };
