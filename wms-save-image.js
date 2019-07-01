@@ -17,9 +17,7 @@ url = url.replace(/HEIGHT=[\d]*/gi, "HEIGHT=" + meta.image.height);
 console.log(url);
 fetch(url)
   .then(response => {
-    response
-      .buffer()
-      .then(data => fs.writeFileSync("thumbnail_back.png", data));
+    response.buffer().then(data => fs.writeFileSync(args.out, data));
   })
   .catch(e => {
     console.warn(e.message);

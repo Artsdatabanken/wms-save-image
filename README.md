@@ -1,48 +1,36 @@
 # Features
 
-Download a single image from a WMS map server
+Download a single image from a WMS map server.
 
-# Usage
+Companion to [map-image-preview](https://github.com/Artsdatabanken/map-image-preview). Based on a sample WMS url, will fill in bounds and image dimensions from a JSON file and download the image.
 
-```
-Usage: node wms-save-image <options> [meta.json]
+## Usage
 
-meta.json   JSON file containing bounds information
+```text
+WMS image downloader v1.0.4
+
+Usage: node wms-save-image <options> [jsonfile]
 
 Options:
+   -M  --meta bounds and image dimensions JSON
    -U  --url  WMS URL template
+   -O  --out  Target image file
 ```
 
 ## Example
 
 ```bash
-node wms-save-image.js example/thumbnail.json
+node wms-save-image.js \
+   -U "https://openwms.statkart.no/skwms1/wms.topo4.graatone?request=GetMap&SERVICE=WMS&VERSION=1.1.1&BBOX=0,0,1,1&SRS=EPSG:32633&WIDTH=400&HEIGHT=300&LAYERS=topo4graatone_WMS&STYLES=&FORMAT=image/png" \
+   -M example/thumbnail.json \
+   -O output.png
 ```
 
 ![Sample](doc/thumbnail_back.png)
 
-## Arguments
-
-### URL template
-
-```bash
-node wms-save-image.js \
-   -U "https://openwms.statkart.no/skwms1/wms.topo4.graatone?request=GetMap&SERVICE=WMS&VERSION=1.1.1&BBOX=${bbox}&SRS=EPSG:32633&WIDTH=${width}&HEIGHT=${height}&LAYERS=topo4graatone_WMS&STYLES=&FORMAT=image/png" \
-   -M example/thumbnail.json
-```
-
-#### Variables
-
-- left: Coordinate of left side of bounds
-- top: Coordinate of top side of bounds
-- right: Coordinate of right side of bounds
-- bottom: Coordinate of bottom side of bounds
-- width: Output image pixel width in pixels
-- height: Output image pixel height in pixels
-
 ### Meta
 
-#### JSON format
+#### JSON file format
 
 ```json
 {
@@ -52,9 +40,21 @@ node wms-save-image.js \
     "right": 805691.242609148,
     "top": 7853460.758413694
   },
-  "image": { "width": 408, "height": 380 },
-  "color": "hsl(0, 0%, 70%)",
-  "strokeWidth": 0.5,
-  "crs": "urn:ogc:def:crs:EPSG::32633"
+  "image": { "width": 408, "height": 380 }
 }
+```
+
+## Batch mode operation
+
+Recursive download
+
+```bash
+find . -type d -exec sh -c "cd \"{}\" && pwd && [ -f thumbnail.json ] && wms-save-image" -U "https://openwms.statkart.no/skwms1/wms.topo4.graatone?request=GetMap&SERVICE=WMS&VERSION=1.1.1&BBOX=0,0,1,1&SRS=EPSG:32633&WIDTH=400&HEIGHT=300&LAYERS=topo4graatone_WMS&STYLES=&FORMAT=image/png" \
+  -M thumbnail.json \;
+```
+
+Composite with other image
+
+```bash
+find . -type d -exec sh -c "cd \"{}\" && pwd && [ -f polygon.32633.geojson ] && convert thumbnail_back.png polygon.32633.png -compose Multiply -composite thumbnail.png" \;
 ```
