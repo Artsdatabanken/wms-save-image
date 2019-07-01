@@ -24,7 +24,7 @@ function parse() {
 }
 
 function usage() {
-  console.log("WMS image downloader v" + pkg.version);
+  console.log(pkg.name + " v" + pkg.version);
   console.log("");
   console.log("Usage: node wms-save-image <options> [jsonfile]");
   console.log("");

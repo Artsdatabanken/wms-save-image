@@ -7,7 +7,7 @@ Companion to [map-image-preview](https://github.com/Artsdatabanken/map-image-pre
 ## Usage
 
 ```text
-WMS image downloader v1.0.4
+wms-save-image v1.1.0
 
 Usage: node wms-save-image <options> [jsonfile]
 
