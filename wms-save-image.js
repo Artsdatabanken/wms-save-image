@@ -15,12 +15,13 @@ url = url.replace(/WIDTH=[\d]*/gi, "WIDTH=" + meta.image.width);
 url = url.replace(/HEIGHT=[\d]*/gi, "HEIGHT=" + meta.image.height);
 
 console.log(url);
-try {
-  fetch(url).then(response => {
+fetch(url)
+  .then(response => {
     response
       .buffer()
       .then(data => fs.writeFileSync("thumbnail_back.png", data));
+  })
+  .catch(e => {
+    console.warn(e.message);
+    process.exit(1);
   });
-} catch (e) {
-  console.warn(e);
-}
