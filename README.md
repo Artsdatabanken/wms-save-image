@@ -49,12 +49,17 @@ node wms-save-image.js \
 Recursive download
 
 ```bash
-find . -type d -exec sh -c "cd \"{}\" && pwd && [ -f thumbnail.json ] && wms-save-image" -U "https://openwms.statkart.no/skwms1/wms.topo4.graatone?request=GetMap&SERVICE=WMS&VERSION=1.1.1&BBOX=0,0,1,1&SRS=EPSG:32633&WIDTH=400&HEIGHT=300&LAYERS=topo4graatone_WMS&STYLES=&FORMAT=image/png" \
+find . -type d -exec sh -c "cd \"{}\" && pwd && \
+[ -f thumbnail.json ] && wms-save-image" \
+-U "https://openwms.statkart.no/skwms1/wms.topo4.graatone?request=GetMap&SERVICE=WMS&VERSION=1.1.1&BBOX=0,0,1,1&SRS=EPSG:32633&WIDTH=400&HEIGHT=300&LAYERS=topo4graatone_WMS&STYLES=&FORMAT=image/png" \
   -M thumbnail.json \;
 ```
 
 Composite with other image
 
 ```bash
-find . -type d -exec sh -c "cd \"{}\" && pwd && [ -f polygon.32633.geojson ] && convert thumbnail_back.png polygon.32633.png -compose Multiply -composite thumbnail.png" \;
+find . -type d -exec sh -c "cd \"{}\" && pwd && \
+[ -f polygon.32633.geojson ] && \
+convert thumbnail_back.png polygon.32633.png \
+-compose Multiply -composite thumbnail.png" \;
 ```
