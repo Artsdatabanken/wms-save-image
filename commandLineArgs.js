@@ -26,7 +26,7 @@ function parse() {
 function usage() {
   console.log(pkg.name + " v" + pkg.version);
   console.log("");
-  console.log("Usage: node wms-save-image <options> [jsonfile]");
+  console.log("Usage: npx wms-save-image <options> [jsonfile]");
   console.log("");
   console.log("Options:");
   console.log("   -M  --meta bounds and image dimensions JSON");
