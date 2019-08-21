@@ -4,7 +4,8 @@
   "description": "Download map image from a WMS servere",
   "main": "wms-save-image.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "npm publish"
   },
   "bin": {
     "wms-save-image": "./wms-save-image.js"
@@ -16,7 +17,7 @@
   "author": "Bjorn Reppen <bjreppen@gmail.com> (https://github.com/bjornreppen)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Artsdatabanken/map-image-preview"
+    "url": "https://github.com/Artsdatabanken/wms-save-image"
   },
   "license": "MIT",
   "dependencies": {
